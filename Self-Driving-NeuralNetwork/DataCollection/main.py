@@ -5,46 +5,53 @@ import cv2
 import os
 import time
 
-w =  [1,0,0,0,0,0,0,0,0]
-s =  [0,1,0,0,0,0,0,0,0]
-a =  [0,0,1,0,0,0,0,0,0]
-d =  [0,0,0,1,0,0,0,0,0]
-wa = [0,0,0,0,1,0,0,0,0]
-wd = [0,0,0,0,0,1,0,0,0]
-sa = [0,0,0,0,0,0,1,0,0]
-sd = [0,0,0,0,0,0,0,1,0]
-sp = [0,0,0,0,0,0,0,0,1]
+
+I =   [1,0,0,0,0,0,0,0,0,0,0]
+L =   [0,1,0,0,0,0,0,0,0,0,0]
+K =   [0,0,1,0,0,0,0,0,0,0,0]
+J =   [0,0,0,1,0,0,0,0,0,0,0]
+V =   [0,0,0,0,1,0,0,0,0,0,0]
+IJ =  [0,0,0,0,0,1,0,0,0,0,0]
+IL =  [0,0,0,0,0,0,1,0,0,0,0]
+IJV = [0,0,0,0,0,0,0,1,0,0,0]
+ILV = [0,0,0,0,0,0,0,0,1,0,0]
+JV =  [0,0,0,0,0,0,0,0,0,1,0]
+LV =  [0,0,0,0,0,0,0,0,0,0,1]
 
 
 def oneHotArr(keys):
-    res = [0,0,0,0,0,0,0,0,0]
-        #A #W #D #Space
-    if 'W' in keys and 'A' in keys:
-        res = wa
-    elif 'W' in keys and 'D' in keys:
-        res = wd
-    elif ' ' in keys and 'A' in keys:
-        res = sa
-    elif ' ' in keys and 'D' in keys:
-        res = sd
-    elif 'W' in keys:
-        res = w
-    elif 'S' in keys:
-        res = s
-    elif 'A' in keys:
-        res = a
-    elif 'D' in keys:
-        res = d
-    elif ' ' in keys:
-        res = sp
-        
-    return res
+    
+    output = [0,0,0,0,0,0,0,0,0,0,0]
+    
+    if 'I' in keys and 'J' in keys and "V" in keys:
+        output = IJV
+    elif 'I' in keys and 'L' in keys and "V" in keys:
+        output = ILV
+    elif 'L' in keys and 'V' in keys:
+        output = LV
+    elif 'J' in keys and 'V' in keys:
+        output = JV
+    elif 'I' in keys and 'L' in keys:
+        output = IL
+    elif 'I' in keys and 'J' in keys:
+        output = IJ
+    elif 'L' in keys:
+        output = L
+    elif 'K' in keys:
+        output = K
+    elif 'J' in keys:
+        output = J
+    elif 'I' in keys:
+        output = I
+    return output
+    
+    
 
 file = 'trainingData.npy'
 
 if os.path.isfile(file):
     print('File exists')
-    data = list(np.load(file))
+    data = list(np.load(file, allow_pickle=True))
 else:
     print("No File Found")
     data = []
@@ -56,22 +63,19 @@ def main():
         print(i+1)
         time.sleep(1)
         
-    last_time = time.time()
     while True:
         screen = grab_screen(region=(0,40,800,600))
+        screen = cv2.resize(screen, (200,150))
         screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
-        screen = cv2.resize(screen, (80,60))
         keys = Check_pressed()
         output = oneHotArr(keys)
-        data.append([screen, output])
-        # cv2.imshow('window', screen)
-        # if cv2.waitKey(25) & 0xFF == ord('q'):
-        #     cv2.destroyAllWindows()
-        #     break
+        data.append([screen,output])
+      
         if len(data) % 500 == 0:
             print("data length is  {}".format(len(data)))
             np.save(file, data)
     
     
     
-main()
+if __name__ == "__main__":
+    main()
