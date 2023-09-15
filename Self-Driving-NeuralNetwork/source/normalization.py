@@ -3,7 +3,7 @@ import numpy as np
 
 
 
-data = np.load('C:/Users/bytes 2.0/Desktop/Projects/Self-Driving-NeuralNetwork/trainingData.npy', allow_pickle=True)
+data = np.load('C:/Users/bytes 2.0/Desktop/Projects/trainingData.npy', allow_pickle=True)
 
 print(data)
 

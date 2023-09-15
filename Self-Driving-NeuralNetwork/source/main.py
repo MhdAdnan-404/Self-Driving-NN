@@ -6,32 +6,19 @@ import os
 import time
 
 
-I =   [1,0,0,0,0,0,0,0,0,0,0]
-L =   [0,1,0,0,0,0,0,0,0,0,0]
-K =   [0,0,1,0,0,0,0,0,0,0,0]
-J =   [0,0,0,1,0,0,0,0,0,0,0]
-V =   [0,0,0,0,1,0,0,0,0,0,0]
-IJ =  [0,0,0,0,0,1,0,0,0,0,0]
-IL =  [0,0,0,0,0,0,1,0,0,0,0]
-IJV = [0,0,0,0,0,0,0,1,0,0,0]
-ILV = [0,0,0,0,0,0,0,0,1,0,0]
-JV =  [0,0,0,0,0,0,0,0,0,1,0]
-LV =  [0,0,0,0,0,0,0,0,0,0,1]
+I =   [1,0,0,0,0,0,0]
+L =   [0,1,0,0,0,0,0]
+K =   [0,0,1,0,0,0,0]
+J =   [0,0,0,1,0,0,0]
+IJ =  [0,0,0,0,0,1,0]
+IL =  [0,0,0,0,0,0,1]
 
 
 def oneHotArr(keys):
     
-    output = [0,0,0,0,0,0,0,0,0,0,0]
+    output = [0,0,0,0,0,0,0]
     
-    if 'I' in keys and 'J' in keys and "V" in keys:
-        output = IJV
-    elif 'I' in keys and 'L' in keys and "V" in keys:
-        output = ILV
-    elif 'L' in keys and 'V' in keys:
-        output = LV
-    elif 'J' in keys and 'V' in keys:
-        output = JV
-    elif 'I' in keys and 'L' in keys:
+    if 'I' in keys and 'L' in keys:
         output = IL
     elif 'I' in keys and 'J' in keys:
         output = IJ
@@ -64,7 +51,7 @@ def main():
         time.sleep(1)
         
     while True:
-        screen = grab_screen(region=(0,40,800,600))
+        screen = grab_screen(region=(0,317,790,600))
         screen = cv2.resize(screen, (200,150))
         screen = cv2.cvtColor(screen, cv2.COLOR_BGR2GRAY)
         keys = Check_pressed()
@@ -72,8 +59,8 @@ def main():
         data.append([screen,output])
       
         if len(data) % 500 == 0:
-            print("data length is  {}".format(len(data)))
             np.save(file, data)
+            print("data length is  {}".format(len(data)))
     
     
     
