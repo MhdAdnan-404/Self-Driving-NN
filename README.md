@@ -59,6 +59,10 @@
   <p>
 <p>The Neural Network size as well as the number of nodes, and Hyperparameters were adjusted accordingly until the desired preformance was achived, Future iterations involve trying different Neural Netwokr Architecture and different types of nerual networks that support sequential data as driving is sequential</p>
 
+
+https://github.com/404dn/Self-Driving-NN/assets/109319994/a8a43cc0-847c-4954-a56d-9a02a0780683
+
+
 <p align="right">(<a href="#Project">back to top</a>)</p>
 
 
