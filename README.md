@@ -3,11 +3,8 @@
 <br />
 
 <div align="center">
-  <h2 align="center">Driver Behavior Monitoring System</h2>
+  <h2 align="center">Self Driving Convolutional Neural Network</h2>
 
-  <p align="center">
-    A system the monitors the behavior of the driver, the location of the car, the system enables customization for some thresholds, when broken, an alert will be sent out. 
-  </p>
 </div>
 
 <details>
@@ -28,17 +25,12 @@
 
 <p align="center">
   
-  <img src="https://github.com/404dn/Driver_Behavior_Monitoring./blob/main/Photos/Screenshot%202023-07-02%20233613%20(1).png" alt="drawing" width="300"/>
-  <img src="https://github.com/404dn/Driver_Behavior_Monitoring./blob/main/Photos/Screenshot%202023-07-03%20032324.png" alt="drawing" width="320"/>
+  <p>
+    This project is a proof of concept for a much bigger project, The idea is to see if I can make a neural network to control a car in a video Game, I picked track mania as the enviroment of the game isn't too complex, as well as the Convolutional Neural network is only looking at the road.
+  </p>
 </p>
 
 
-
-<h4>
-  <p>
-    The Backbone of the system is FMC 130 Teltonika device, this device was made to read data from vehicles as well as send specific GPS coordinates of the car, the device can be connected to the car and provide information about the car and some sensors in the car, in addition, the device has GPS and an accelerometer, which enables real time location as well as G-Force measurements, This is utilized in the system for measuring Aggressive acceleration as well as Aggressive braking , The idea for the system is to be put in industries that require fleet management in order to minmize alot of the running costs, The system works by utalizing a server that is running on google cloud service that relays all of the information that is sent from the device to the application.  
-  </p>
-</h4>
 
 
 <p align="right">(<a href="#Project">back to top</a>)</p>
@@ -46,7 +38,13 @@
 
 ## Built With
 
-<p align="center"> </a> <a href="https://reactjs.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/react/react-original-wordmark.svg" alt="react" width="70" height="70"/> </a> <a href="https://www.typescriptlang.org/" target="_blank" rel="noreferrer"> <img src="https://raw.githubusercontent.com/devicons/devicon/master/icons/typescript/typescript-original.svg" alt="typescript" width="70" height="70"/> </a> </p>
+
+
+<p align="center">
+  <a href="https://skillicons.dev">
+    <img src="https://skillicons.dev/icons?i=py" />
+  </a>
+</p>
 
 <h2 align="left"> The Software </h2>
 <p><Strong>The server side</Strong>, I had the option of using python as I already Knew the language and had built similar tcp servers with it, but because there might be alot of messages that are going to be sent to the server in a short duration, I wanted a fast languge to avoid data loss, so i choose type script, and saw this as a good opportunity to learn the langauge.</p>
