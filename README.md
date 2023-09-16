@@ -46,19 +46,19 @@
   </a>
 </p>
 
-<h2 align="left"> The Software </h2>
-<p><Strong>The server side</Strong>, I had the option of using python as I already Knew the language and had built similar tcp servers with it, but because there might be alot of messages that are going to be sent to the server in a short duration, I wanted a fast languge to avoid data loss, so i choose type script, and saw this as a good opportunity to learn the langauge.</p>
+<h2 align="left"> DataCollection </h2>
+<p>I started out by bulding a python script that takes screen shots of the game as well as records the keys are were pressed at the time the screen shot was taken, this was the way of building the data set that was needed to train the model, </p>
 
-<p><Strong>The front end</Strong>, Previously i had used SWFIT which is IOS native langauge, but i wanted to learn something new, so i settled for Reacte Native, the advanatge of using Reacte native is the that its widely supported and there is alot of libraries that make it very easy to develop and application quickly, as well as it uses HTML for the UI elements and CSS for styling the elements which makes it infinitely easier, more over Reacte native when complied gives two files, one is for IOS and the other is for ANDRIOD so it saves alot of time if developing for both platforms.</p>
+<h2 align="left">Pre-processing</h2>
+<p>Before trainning the nerural network on the data, I did some preprocssing to the data, one of the imporant steps in pre-processing is to normalize the pixel values of the images as well as making a trainning set and a testing set</p>
 
-<h2 align="left"> The Hardware </h2>
+<h2 align="left">Trainning</h2>
 
 
-<p align="center">
-<img src="https://github.com/404dn/Driver_Behavior_Monitoring./blob/main/Photos/Screenshot%202023-07-03%20033036.png" alt="drawing" width="200"/>
-</p>
-
-<p>The system relies on TelTonika Device, FMC 130, This device is specifically made for this task, its built for monitoring all kinds of data and input from the vehicle, the device allows the user to preset some thersholds and parameters that determines when dose the device alert and under what conditions, as well as it sends location and speed based on a preset interval, the deivce can be connected to the nemours systems that are in the car and can display all sorts of data, the device comes with its own software for ease of programmability and deployment.</p>
+ <p align="center">
+    <img src="https://github.com/404dn/Self-Driving-NN/blob/main/photos/model.png" alt="drawing"/>
+  <p>
+<p>The Neural Network size as well as the number of nodes was adjusted accordingly until the desired preformance was achived</p>
 
 
 
